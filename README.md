@@ -1,7 +1,7 @@
 # spotify-creator
 Create a Spotify account
 # Instalation
-You need a package bash to run this tools
+You need a package bash to run this tools, 
 clone this repository
 ```
 git https://github.com/R1iaz/spotify-creator
