@@ -14,24 +14,24 @@ exit
 }
 echo ""
 printf "$cyan ======================================= \n"
-printf "$yell      -+SPOTIFY ACCOUNT CREATOR+ -\n"
+printf "$yell      -+SPOTIFY ACCOUNT CREATOR+-\n"
 printf "$cyan ======================================= \n"
 printf "$red        CREATED BY$white @azisek_ \n"
 printf "$cyan ======================================= \n"
 printf "$white"
 cat <<EOF
 EOF
-register(){
+daftar(){
 	random=$(echo $RANDOM)
 	curl=$(curl -s "https://spclient.wg.spotify.com:443/signup/public/v1/account/" --data "iagree=true&birth_day=17&platform=Android-ARM&creation_point=client_mobile&password=$pswd&key=142b583129b2df829de3656f9eb484e6&birth_year=2000&email=$user.$random@mail.id&gender=male&app_version=849800892&birth_month=12&password_repeat=$pswd")
 	status=$(echo $curl | grep -Po '(?<=status":)[^},]*' | tr -d '[]"' | sed 's/\(<[^>]*>\|<\/>\|{1|}\)//g')
 	if [[ $status =~ "1" ]]; 
-    then
-        date +%H:%M:%S
-        printf "$white[$green Success$white ] => $user.$random@mail.id|$pswd\n"
-        echo "[ Sukses ]$user.$random@mail.id|$pswd" >> akun.txt
+    	then
+        	date +%H:%M:%S
+        	printf "$white[$green Success$white ] => $user.$random@mail.id|$pswd\n"
+        	echo "[ Sukses ]$user.$random@mail.id|$pswd" >> akun.txt
 	else
-        date +%H:%M:%S
+        	date +%H:%M:%S
 		printf "$white[$red Failed$white ] => $user.$random@mail.id|$pswd\n"
 	fi
 }
@@ -39,5 +39,5 @@ read -p "Jumlah : " jumlah
 read -p "Masukan Username (Bebas) : " user
 read -p "Masukan Password : " pswd
 for (( i = 0; i < $jumlah; i++ )); do
-	register $user $pswd
+	daftar $user $pswd
 done
